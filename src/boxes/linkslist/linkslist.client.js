@@ -36,9 +36,6 @@
          },
          ready: function () {
             this._reposition();
-            //this.links = JSON.parse(this.links);
-             
-             console.log(this.links);
          }
      });
  });

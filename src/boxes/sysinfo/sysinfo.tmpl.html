@@ -1,16 +1,29 @@
 <link rel="import" href="../../client/assets/vendor/polymer/polymer.html">
-
+<link rel="import" href="../../client/assets/vendor/google-chart/google-chart.html">
 <dom-module id="box-sysinfo">
     <template>
         <link rel="stylesheet" href="./sysinfo.style.css">
         <div id="box" class="sysinfo">
-            
+
+            <div class="row"><strong>PLATFORM</strong> /<span class="right">{{platform}}</span></div>
+
             <div class="row"><strong>HOSTNAME</strong> /<span class="right">{{hostname}}</span></div>
-            
+
             <div class="row"><strong>UPTIME</strong> /<span class="right">{{uptime}}</span></div>
-            
-            <div class="row"><strong>FREE MEM</strong> /<span class="right">{{freemem}}</span></div>
-            
+
+            <div class="row"><strong>MEM</strong> /<span class="right">{{freemem}}/{{totalmem}} ({{mempercent}}%)</span></div>
+
+            <div class="row"><strong>LOAD AVG</strong> /<span class="right">{{loadavg}}</span></div>
+
+            <div class="row">
+                  <google-chart
+    type='area'
+    options='{"title": "Days in a month"}'
+    cols='[{"label": "Month", "type": "string"},{"label": "Days", "type": "number"}]'
+    rows='[["Jan", 31],["Feb", 28],["Mar", 31],["Apr", 30],["May", 31],["Jun", 30]]'>
+  </google-chart>
+            </div>
+
         </div>
     </template>
     <script src="./sysinfo.client.js"></script>

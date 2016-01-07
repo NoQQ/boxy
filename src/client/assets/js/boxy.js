@@ -1,23 +1,56 @@
 'use strict';
 
-var ipc = require('electron').ipcRenderer;
+var Boxy = function (boxesContainer, debug) {
+    this.debug = debug;
+    var that = this;
 
-function importBox(path) {
-    Polymer.Base.importHref(path, function () {
-        console.log(path + ' load!');
-    }, function () {
-        console.log(err);
-    });
-}
+    this.log = function (data, obj) {
+        if (!this.debug)
+            return;
+
+        var prefix = '[Boxy][' + new Date().toString() + '] :: ';
+
+        if (typeof data === 'string' || data instanceof String) {
+            console.log(prefix + data);
+        } else {
+            console.log(prefix);
+            console.log(data);
+        }
+
+        if (obj) console.log(obj);
+    };
+
+    this.ipc = require('electron').ipcRenderer;
+
+    this.importBox = function (path) {
+        return new Promise(function (resolve, reject) {
+            Polymer.Base.importHref(path, () => {
+                that.log('imported Box: ' + path);
+                resolve(path);
+            }, (err) => {
+                that.log('error importing Box: ' + path);
+                reject(err);
+            });
+        });
+    };
+
+    this.addBoxDom = function (dom) {
+        var _dom = $(boxesContainer).append(dom);
+        this.log('added Box\'s DOM:', _dom);
+        return _dom;
+    };
+};
+
+Boxy = new Boxy('#boxy-container', true);
+
 $(document).ready(function () {
-    ipc.send('domReady');
-    
-    ipc.on('addBoxDom', function (event, dom) {
-        console.log('should add: ' + dom);
-        $('#boxy-container').append(dom);
+    Boxy.ipc.send('domReady');
+
+    Boxy.ipc.on('addBoxDom', function (event, dom) {
+        Boxy.addBoxDom(dom);
     });
-    
-    $('a.external-link').click(function(ev) {
+
+    $('a.external-link').click(function (ev) {
         ev.preventDefault();
     });
 });
