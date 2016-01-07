@@ -1,0 +1,17 @@
+<link rel="import" href="../../client/assets/vendor/polymer/polymer.html">
+
+<dom-module id="box-pingslist">
+    <template>
+        <link rel="stylesheet" href="./pingslist.style.css">
+        <div id="box" class="pingslist">
+            <ul>
+                <template is="dom-repeat" items="{{_probes}}">
+                    <li>{{item.target}} <span class="right">{{item.status}}</span></li>
+                </template>
+            </ul>
+        </div>
+    </template>
+    <script src="./pingslist.client.js"></script>
+    <script>
+    </script>
+</dom-module>
