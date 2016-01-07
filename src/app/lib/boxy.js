@@ -34,14 +34,14 @@ var Boxy = function (windowConfig) {
     this.injectImports = function () {
         glob(that.boxesPath+'/**/*.tmpl.html', {}, function(err, files) {
             files.forEach(function(path) {
-                that.window.webContents.executeJavaScript('importBox("' + path +'")');
+                that.window.webContents.executeJavaScript('Boxy.importBox("' + path +'")');
             });
         });
     };
     
     this.injectDOMs = function() {
         require(that.boxesPath + '/boxes').boxes.forEach(function(box) {
-            var dom = '<box-' + box.name + ' ';
+            var dom = '<box-' + box.box + ' ';
             
             for(var arg in box.args) {
                 if(box.args[arg] === '')
@@ -53,7 +53,7 @@ var Boxy = function (windowConfig) {
             
             dom = dom.trim();
             
-            dom += '></box-' + box.name + '>';
+            dom += '></box-' + box.box + '>';
             
             that.window.webContents.send('addBoxDom', dom);
             
