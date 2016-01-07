@@ -1,0 +1,55 @@
+<link rel="import" href="../../client/assets/vendor/polymer/polymer.html">
+
+<dom-module id="box-dummy">
+    <template>
+        <div id="box" style="background: red;">
+            {{text}}
+        </div>
+    </template>
+    <script>
+        HTMLImports.whenReady(function () {
+            
+            var Def = function () {
+                this.is = 'box-dummy';
+                this.properties = {
+                    text: String,
+                    posAbsolute: {
+                        type: Boolean,
+                        value: false
+                    },
+                    top: String,
+                    right: String,
+                    bottom: String,
+                    left: String,
+                    width: String,
+                    height: String
+                };
+                this._reposition = function () {
+                    if (this.posAbsolute) {
+                        this.$.box.style.position = 'absolute';
+
+                        if (this.top)
+                            this.$.box.style.top = this.top;
+                        if (this.right)
+                            this.$.box.style.right = this.right;
+                        if (this.bottom)
+                            this.$.box.style.bottom = this.left;
+                        if (this.left)
+                            this.$.box.style.left = this.left;
+                        if (this.width)
+                            this.$.box.style.width = this.width;
+                        if (this.height)
+                            this.$.box.style.height = this.height;
+                    }
+
+                };
+                this.ready = function () {
+                    this._reposition();
+                    this.set('text', 'Wuuush !!');
+                };
+            };
+
+            Polymer(new Def());
+        });
+    </script>
+</dom-module>
