@@ -33,8 +33,7 @@
          },
          _startCounting: function () {
              var that = this;
-
-             console.log('3', this.posAbsolute, this.hideTime);
+             
              setInterval(function () {
                  var date = new Date();
                  that.hours = ((date.getHours() < 10) ? '0' : '') + date.getHours();
