@@ -1,0 +1,17 @@
+<link rel="import" href="../../client/assets/vendor/polymer/polymer.html">
+
+<dom-module id="box-linkslist">
+    <template>
+        <link rel="stylesheet" href="./linkslist.style.css">
+        <div id="box">
+            <ul>
+                <template is="dom-repeat" items="{{links}}">
+                    <li><a href="{{item.0}}">{{item.1}}</a>
+                </template>
+            </ul>
+        </div>
+    </template>
+    <script src="./linkslist.client.js"></script>
+    <script>
+    </script>
+</dom-module>

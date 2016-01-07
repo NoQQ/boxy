@@ -1,0 +1,22 @@
+<link rel="import" href="../../client/assets/vendor/polymer/polymer.html">
+
+<dom-module id="box-clock">
+    <template>
+        <link rel="stylesheet" href="./clock.style.css">
+        <div id="box">
+            <div id="time" hidden$="[[hideTime]]">
+                <span id="hours">[[hours]]</span>
+                <span id="minutes">[[minutes]]</span>
+                <span id="seconds">[[seconds]]</span>
+            </div>
+            <div id="date" hidden$="[[hideDate]]">
+                <span id="day">[[day]]</span>
+                <span id="month">[[month]]</span>
+                <span id="year">[[year]]</span>
+            </div>
+        </div>
+    </template>
+    <script src="./clock.client.js"></script>
+    <script>
+    </script>
+</dom-module>

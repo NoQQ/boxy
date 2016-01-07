@@ -1,0 +1,20 @@
+{
+  "name": "boxy",
+  "version": "1.0.0",
+  "description": "Conky-like",
+  "main": "build/app/app.js",
+  "scripts": {
+    "test": "echo \"error: no test specified\" && exit 1",
+    "start": "electron ./build/app/app.js --enable-transparent-visuals --disble-gpu"
+  },
+  "author": "mk",
+  "license": "isc",
+  "dependencies": {
+    "electron-window": "^0.6.2",
+    "glob": "^6.0.3",
+    "gulp-less": "^3.0.5",
+    "gulp-run": "^1.6.12",
+    "is-electron-renderer": "^2.0.0",
+    "moment": "^2.11.0"
+  }
+}

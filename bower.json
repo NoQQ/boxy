@@ -1,0 +1,23 @@
+{
+  "name": "boxy",
+  "description": "Conky-like",
+  "main": "build/app/app.js",
+  "authors": [
+    "mk"
+  ],
+  "license": "isc",
+  "moduleType": [],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.2.0",
+    "moment": "~2.11.0"
+  }
+}

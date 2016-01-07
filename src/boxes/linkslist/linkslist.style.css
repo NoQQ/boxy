@@ -1,0 +1,23 @@
+#box {
+    font-size: 0.9em;
+    font-family: sans-serif;
+}
+
+#box ul {
+    list-style-type: none;
+}
+
+#box ul li a {
+    color: rgb(136, 118, 109);
+    text-decoration: none;
+    display: block;
+    padding: 5px;
+    margin: 5px;
+    background: rgba(0, 0, 0, 0.3);
+    font-size: 0.9em;
+}
+
+#box ul li a:hover {
+    color: rgb(200, 118, 109);
+    background: rgba(0, 0, 0, 0.5);
+}

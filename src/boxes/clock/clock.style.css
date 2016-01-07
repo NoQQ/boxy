@@ -1,0 +1,31 @@
+#time,
+#date {
+    font-family: 'Droid Sans Regular', sans-serif;
+    font-size: 4em;
+}
+
+#time {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+#hours {
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 2em;
+}
+
+#minutes {
+    color: rgba(0, 0, 0, 0.3);
+    font-size: 1.95em;
+}
+
+#seconds {
+    color: rgba(0, 0, 0, 0.15);
+    font-size: 1em;
+}
+
+#date {
+    text-align: right;
+    font-size: 2em;
+    letter-spacing: 0.1em;
+    color: rgba(0, 0, 0, 0.3);
+}

@@ -1,0 +1,19 @@
+<link rel="import" href="../../client/assets/vendor/polymer/polymer.html">
+
+<dom-module id="box-sysinfo">
+    <template>
+        <link rel="stylesheet" href="./sysinfo.style.css">
+        <div id="box" class="sysinfo">
+            
+            <div class="row"><strong>HOSTNAME</strong> /<span class="right">{{hostname}}</span></div>
+            
+            <div class="row"><strong>UPTIME</strong> /<span class="right">{{uptime}}</span></div>
+            
+            <div class="row"><strong>FREE MEM</strong> /<span class="right">{{freemem}}</span></div>
+            
+        </div>
+    </template>
+    <script src="./sysinfo.client.js"></script>
+    <script>
+    </script>
+</dom-module>
